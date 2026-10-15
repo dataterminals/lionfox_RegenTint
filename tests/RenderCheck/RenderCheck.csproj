@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Runs the game's own GuiElementStatbar drawing code outside the game, before and after the
+       RegenTint patch, and saves what it draws as PNGs in tests/out/. Proves the transpiler finds
+       its two sites in the installed VintagestoryAPI.dll and shows the actual pixels.
+       Run it from the repo root with: dotnet run, configuration Release, project tests/RenderCheck (see README) -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <!-- Same resolution as the mod; the install has moved before. -->
+    <VS_PATH Condition="'$(VS_PATH)' == ''">$(VINTAGE_STORY)</VS_PATH>
+    <VS_PATH Condition="'$(VS_PATH)' == '' And Exists('D:\Vintagestory\VintagestoryAPI.dll')">D:\Vintagestory</VS_PATH>
+    <VS_PATH Condition="'$(VS_PATH)' == '' And Exists('H:\Vintagestory\VintagestoryAPI.dll')">H:\Vintagestory</VS_PATH>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>VS_PATH</_Parameter1>
+      <_Parameter2>$(VS_PATH)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <!-- Not copied: the program resolves these from the install at run time, as the game would. -->
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(VS_PATH)\VintagestoryAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(VS_PATH)\Lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="cairo-sharp">
+      <HintPath>$(VS_PATH)\Lib\cairo-sharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <ProjectReference Include="..\..\lionfox_RegenTint.csproj" />
+  </ItemGroup>
+
+</Project>

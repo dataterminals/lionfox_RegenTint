@@ -1,0 +1,14 @@
+{
+    "type": "code",
+    "modid": "lionfoxregentint",
+    "name": "RegenTint",
+    "description": "Makes the green 'health still to come' segment on the health bar (shown while a bandage or poultice heals you over time) bright and easy to see. Colour and opacity are set in ModConfig/lionfoxregentint.json; type .regentint to reload it and preview the result.",
+    "authors": [ "lionfox" ],
+    "version": "0.1.0",
+    "side": "Client",
+    "requiredOnClient": false,
+    "requiredOnServer": false,
+    "dependencies": {
+        "game": "1.22.0"
+    }
+}

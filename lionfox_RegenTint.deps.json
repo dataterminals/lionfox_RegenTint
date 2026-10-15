@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "lionfox_RegenTint/0.1.0": {
+        "runtime": {
+          "lionfox_RegenTint.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "lionfox_RegenTint/0.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

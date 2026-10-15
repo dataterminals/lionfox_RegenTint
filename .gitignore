@@ -1,0 +1,6 @@
+obj/
+bin/
+*.pdb
+build/
+*.zip
+tests/out/
